@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube</title>
+    <link rel="icon" href="YT.png" type="image/x-icon">
+    <style>
+        body {
+            background-color: #801414;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #dedcdc;
+        }
+        .content {
+            background-color: #ddddddeb;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgb(195, 188, 188);
+        }
+        .images {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .images img {
+            width: 200px;
+            height: 150px;
+            margin: 10px;
+            transition: transform 0.3s;
+        }
+        .images img:hover {
+            transform: scale(1.1);
+            border: 2px solid #00e1ff;
+        }
+        .images .caption {
+            text-align: center;
+            margin-top: 5px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(228, 228, 228);
+            background-color: rgba(76, 75, 75, 0.816);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+        .modal-content, #caption {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+        @keyframes zoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f4f2f2;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .close:hover,
+        .close:focus {
+            color: #232121;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Streaming en YouTube</h1>
+        <h2>Todo lo que necesitas saber</h2>
+        <div class="content">
+            <p>El streaming en YouTube se ha convertido en una de las formas más populares de compartir contenido en línea. Ya sea que estés transmitiendo videojuegos, tutoriales, o eventos en vivo, YouTube ofrece una plataforma robusta para llegar a una audiencia global.</p>
+        </div>
+        <div class="images">
+            <div>
+                <img src="yt1.png" alt="Imagen 1" onclick="openModal(this)">
+                <div class="caption">Interfaz sencilla para todos los usuarios.</div>
+            </div>
+            <div>
+                <img src="yt2.png" alt="Imagen 2" onclick="openModal(this)">
+                <div class="caption">Logo de youtube live.</div>
+            </div>
+            <div>
+                <img src="yt3.jpg" alt="Imagen 3" onclick="openModal(this)">
+                <div class="caption">Compartir en tiempo real con los usuarios del chat.</div>
+            </div>
+            <div>
+                <img src="yt4.png" alt="Imagen 4" onclick="openModal(this)">
+                <div class="caption">Racciones y mucho mas.</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">×</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+
+    <script>
+        function openModal(element) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            modal.style.display = "block";
+            modalImg.src = element.src;
+            captionText.innerHTML = element.nextElementSibling.innerHTML;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>
+

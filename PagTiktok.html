@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok</title>
+    <link rel="icon" href="TIKTOK.png" type="image/x-icon">
+    <style>
+        body {
+            background-color: #151515f6;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #ececec;
+        }
+        .content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .images {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .images img {
+            width: 200px;
+            height: 150px;
+            margin: 10px;
+            transition: transform 0.3s;
+        }
+        .images img:hover {
+            transform: scale(1.1);
+            border: 2px solid #2aa7a3;
+        }
+        .images .caption {
+            text-align: center;
+            margin-top: 5px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(52, 51, 51, 0.9);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+        .modal-content, #caption {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+        @keyframes zoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Streaming en TikTok</h1>
+        <h2>Todo lo que necesitas saber</h2>
+        <div class="content">
+            <p>El streaming en YouTube se ha convertido en una de las formas más populares de compartir contenido en línea. Ya sea que estés transmitiendo videojuegos, tutoriales, o eventos en vivo, YouTube ofrece una plataforma robusta para llegar a una audiencia global.</p>
+        </div>
+        <div class="images">
+            <div>
+                <img src="TK1.jpeg" alt="Imagen 1" onclick="openModal(this)">
+                <div class="caption">Facil de acceder a los directos</div>
+            </div>
+            <div>
+                <img src="TK2.jpeg" alt="Imagen 2" onclick="openModal(this)">
+                <div class="caption">hecho para el uso sea sencillo</div>
+            </div>
+            <div>
+                <img src="TK3.jpeg" alt="Imagen 3" onclick="openModal(this)">
+                <div class="caption">Trasmitir eventos especiales</div>
+            </div>
+            <div>
+                <img src="TK4.jpeg" alt="Imagen 4" onclick="openModal(this)">
+                <div class="caption">Facil de interactuar con tus seguidores</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">×</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+
+    <script>
+        function openModal(element) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            modal.style.display = "block";
+            modalImg.src = element.src;
+            captionText.innerHTML = element.nextElementSibling.innerHTML;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>
+
